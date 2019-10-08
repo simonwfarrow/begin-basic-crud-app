@@ -8,8 +8,14 @@ exports.handler = async function post (req) {
     table: 'todos',
     ...todo
   })
+
+  let name = 'test-event'
+  let payload = {body: todo}
+  await arc.events.publish({name, payload})
+
   return {
     statusCode: 302,
     headers: {'location': '/'}
   }
+
 }

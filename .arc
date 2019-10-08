@@ -8,6 +8,9 @@ get /todos
 post /todos
 post /todos/delete
 
+@events
+test-event
+
 @tables
 data
   scopeID *String
