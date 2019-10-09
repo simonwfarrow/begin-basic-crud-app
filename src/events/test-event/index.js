@@ -3,7 +3,8 @@ let data = require('@begin/data')
 
 exports.handler = async function subscribe(payload) {
 
-  let todo  = JSON.stringify(payload, null, 2)
+  let body  = JSON.parse(payload.Records[0].Sns.Message);
+  let todo  = body.body;
   await data.set({
     table: 'todos',
     ...todo
